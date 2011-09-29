@@ -1,0 +1,59 @@
+\ProvidesPackage{onepage}[2011/09/11 Version 0.1]
+\usepackage[english,finnish]{babel}
+\clubpenalty = 1000
+\widowpenalty = 1000
+\usepackage{xunicode,xltxtra,fontspec} %Nämä on xelatex-paketteja
+\usepackage{url}
+\usepackage[%
+    colorlinks=true,%
+    linkcolor=blue,urlcolor=blue,%
+    pdfstartpage=1,%
+    pdfstartview=FitV,%
+    breaklinks=true,%
+    pdfpagemode=UseOutlines,%
+    pageanchor=true,%
+    plainpages=false,%
+    bookmarksnumbered=true,%
+    bookmarksopen=false,%
+    bookmarksopenlevel=true,%
+    pdfhighlight=/O,%
+    ]{hyperref}%referecesaslinks/URLsinthePDF
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+    \fancyhead{}
+    \fancyhead[R]{%
+        \textsc{\theauthor}\\%
+	\addfontfeature{Numbers=OldStyle}{\thestudentnumber}\\% vaihda
+%\addfontfeature{Numbers=OldStyle} -> \oldstylenums{}%
+        \textnormal\themail%
+    }
+    \fancyhead[L]{%
+        \coursename\\%
+        \coursecode\\%
+        \today
+    }
+\setlength{\headsep}{7mm}
+\setlength{\headheight}{35pt}
+
+%Nämä on xelatex-paketti fontspecin komentoja
+\setmainfont[Mapping=tex−text,Numbers=Lining]{Linux Libertine O}
+\setromanfont[Mapping=tex−text,Numbers=Lining]{Linux Libertine O}
+\setsansfont[Numbers=OldStyle]{Linux Biolinum O}
+%\addfontfeature{Numbers=OldStyle}
+
+\renewcommand*{\author}[1]{% User command
+    \newcommand*{\theauthor}{#1}}
+\newcommand*{\mail}[1]{% User command
+    \newcommand*{\themail}{#1}}
+\newcommand*{\round}[1]{% User command
+    \newcommand*{\theround}{#1}}
+\newcommand*{\course}[2]{% User command
+    \newcommand*{\coursename}{#1}%
+    \newcommand*{\coursecode}{#2}}%
+\newcommand*{\uni}[1]{% User command
+    \newcommand*{\theuni}{#1}}
+\newcommand*{\school}[1]{% User command
+    \newcommand*{\theschool}{#1}}
+\newcommand*{\studentnumber}[1]{%
+    \newcommand*{\thestudentnumber}{#1}}% User command
