@@ -1,0 +1,53 @@
+\documentclass[a4paper,10pt]{scrartcl}
+\usepackage{multipage}
+\author{Sakari Cajanus}
+\mail{sakari.cajanus@aalto.fi}
+\studentnumber{82036R}
+
+\round{Läksy 2}
+\course{Solubiosysteemit}{S-115.2500}
+\uni{Aalto-yliopisto}
+\school{sähkötekniikan korkeakoulu}
+
+
+\begin{document}
+\maketitlepage
+\section{Section}
+For Bernoulli distribution, i.e. the classes our data points are drawn from the maximum likelihood estimate of the parameter $\hat p_1$ is given by
+\begin{align*}
+    \hat p_1 = \frac{\sum x_{C=1}}{N}
+\end{align*}
+The other parameter, $\hat p_2$ is then given by calculation
+\begin{align*}
+    \hat p_2 = 1 - \hat p_1.
+\end{align*}
+For the normal distribution (values associated with each class), the MLE's can be calculated using formulas
+\begin{align*}
+    \hat \mu = \frac{\sum x_{C=i}}{N}
+\end{align*}
+\begin{align*}
+    \hat \sigma^2 = \frac{\sum (x_{C=i}-\hat \mu)^2}{N}.
+\end{align*}
+In problem 2, we were asked to generate data using a Bernoulli model $p(X=1 |
+\theta) = \theta$, $p(X=2 | \theta)=1-\theta$ and then calculate maximum
+likelihood estimates for the parameter $\theta$. The source code is shown
+in appendix \ref{LiiteB}. Table \ref{tab:bernoulli} shows the results.
+\begin{table}[ht]
+	\caption{Bernoulli process and MLE's for different sample sizes\vspace{2pt}}
+	\label{tab:bernoulli}
+	\centering
+	\begin{tabular}{rrrr}
+		\toprule
+		$n$ & $\theta$ & $\hat\theta$ & error \\
+		\hline
+10        &  0.4000  &  0.6000 & 0.2000 \\
+100       &  0.4000  &  0.4200 & 0.0200 \\
+1000      &  0.4000  &  0.4090 & 0.0090 \\
+10000     &  0.4000  &  0.3971 & 0.0029 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\clearpage
+\appendix
+\section{Liite\label{LiiteB}}
+\end{document}

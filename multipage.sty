@@ -1,4 +1,4 @@
-\ProvidesPackage{onepage}[2011/09/11 Version 0.1]
+\ProvidesPackage{multipage}[2011/09/11 Version 0.1]
 \usepackage[english,finnish]{babel}
 \clubpenalty = 1000
 \widowpenalty = 1000
@@ -19,28 +19,26 @@
     pdfhighlight=/O,%
     ]{hyperref}%referecesaslinks/URLsinthePDF
 \usepackage{amsmath}
-\usepackage{mathpazo}
 \usepackage{booktabs}
-\usepackage{fancyhdr}
-    \fancyhead{}
-    \fancyhead[R]{%
-        \textsc{\theauthor}\\%
-	\addfontfeature{Numbers=OldStyle}{\thestudentnumber}\\% vaihda
-%\addfontfeature{Numbers=OldStyle} -> \oldstylenums{}%
-        \textnormal\themail%
-    }
-    \fancyhead[L]{%
-        \coursename\\%
-        \coursecode\\%
-        \today
-    }
-\setlength{\headsep}{7mm}
-\setlength{\headheight}{35pt}
+\usepackage{changepage}
+\usepackage{mathpazo}
+%\usepackage{commath}
 
+%% Vaakasuunnan mitat, ÄLÄ KOSKE!
+\setlength{\hoffset}{-1in}
+\setlength{\oddsidemargin}{45mm}
+\setlength{\evensidemargin}{35mm}
+\setlength{\textwidth}{13cm}
+%% Pystysuunnan mitat, ÄLÄ KOSKE!
+\setlength{\voffset}{-1in}
+\setlength{\headsep}{7mm}
+\setlength{\headheight}{1em}
+\setlength{\topmargin}{25mm-\headheight-\headsep}
+\setlength{\textheight}{23cm}
 %Nämä on xelatex-paketti fontspecin komentoja
+\defaultfontfeatures{Scale=MatchLowercase}
 \setmainfont[Mapping=tex−text,Numbers=Lining]{Linux Libertine O}
-\setromanfont[Mapping=tex−text,Numbers=Lining]{Linux Libertine O}
-\setsansfont[Numbers=OldStyle]{Linux Biolinum O}
+\setsansfont[]{Linux Biolinum O}
 %\addfontfeature{Numbers=OldStyle}
 
 \renewcommand*{\author}[1]{% User command
@@ -58,3 +56,29 @@
     \newcommand*{\theschool}{#1}}
 \newcommand*{\studentnumber}[1]{%
     \newcommand*{\thestudentnumber}{#1}}% User command
+
+\newcommand{\maketitlepage}{
+\thispagestyle{empty}
+\begin{titlepage}
+\begin{adjustwidth}{-20mm}{-10mm}
+\begin{center}
+\begin{flushright}%
+{\addfontfeature{Letters=SmallCaps} \theauthor}\\
+{\addfontfeature{Numbers=OldStyle} \thestudentnumber}\\
+\themail
+\end{flushright}
+\vspace{8cm}
+{\addfontfeature{Letters=SmallCaps}\LARGE\theround}\\
+%\LARGE\textsc{\thetitle}\\
+\rule{160mm}{.5mm}\\
+\vspace{1mm}
+{\addfontfeature{Letters=SmallCaps}\coursecode{ } \coursename}\\
+
+\vfill
+\normalsize{\today}
+\end{center}
+\end{adjustwidth}
+\end{titlepage}
+\clearpage
+\noindent
+}
