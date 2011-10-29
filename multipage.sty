@@ -2,6 +2,7 @@
 \usepackage[english,finnish]{babel}
 \clubpenalty = 1000
 \widowpenalty = 1000
+%\usepackage[osf]{mathpazo}
 \usepackage{xunicode,xltxtra,fontspec} %Nämä on xelatex-paketteja
 \usepackage{url}
 \usepackage[%
@@ -21,7 +22,6 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{changepage}
-\usepackage{mathpazo}
 %\usepackage{commath}
 
 %% Vaakasuunnan mitat, ÄLÄ KOSKE!
@@ -37,7 +37,7 @@
 \setlength{\textheight}{23cm}
 %Nämä on xelatex-paketti fontspecin komentoja
 \defaultfontfeatures{Scale=MatchLowercase}
-\setmainfont[Mapping=tex−text,Numbers=Lining]{Linux Libertine O}
+\setmainfont[Mapping=tex−text,Numbers=Lining,Ligatures={Common,Rare,Discretionary}]{Linux Libertine O}
 \setsansfont[]{Linux Biolinum O}
 %\addfontfeature{Numbers=OldStyle}
 
@@ -63,16 +63,16 @@
 \begin{adjustwidth}{-20mm}{-10mm}
 \begin{center}
 \begin{flushright}%
-{\addfontfeature{Letters=SmallCaps} \theauthor}\\
+{\textsc \theauthor}\\
 {\addfontfeature{Numbers=OldStyle} \thestudentnumber}\\
 \themail
 \end{flushright}
 \vspace{8cm}
-{\addfontfeature{Letters=SmallCaps}\LARGE\theround}\\
+{\LARGE\textsc\theround}\\
 %\LARGE\textsc{\thetitle}\\
 \rule{160mm}{.5mm}\\
 \vspace{1mm}
-{\addfontfeature{Letters=SmallCaps}\coursecode{ } \coursename}\\
+{\textsc\coursecode{ } \coursename}\\
 
 \vfill
 \normalsize{\today}
